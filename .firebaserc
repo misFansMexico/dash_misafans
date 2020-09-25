@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "misfans-df9cb": {
+      "hosting": {
+        "dashmisFans": [
+          "dashmisfans"
+        ]
+      }
+    }
+  }
+}
