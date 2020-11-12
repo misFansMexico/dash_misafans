@@ -1,35 +1,124 @@
 .cont-img {
-  width: 200px;
-  height: 200px;
-  margin-left: 30px;
+  width: 100px;
+  height: 100px;
 }
 
 .portada {
-  width: 240px;
-  height: 135px;
+  width: 300px;
+  height: 150px;
 }
 
 .cont-img img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   background-color: rgb(195, 195, 195);
+  object-fit: cover;
+  object-position: top;
+}
+.portada img {
+  border-radius: unset;
 }
 
 .contenedor {
-  width: 600px;
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 40px auto;
   border-radius: 12px;
+  background: #1c1e21;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-  padding: 15px;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.title {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 34px;
 }
 
 .input-file-cont {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 25px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.file-select-button {
+  margin-top: 15px;
+  width: 100%;
+  height: 50px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  color: white !important;
+}
+
+.save_creator {
+  width: 100%;
+  height: 50px;
+  background: #43efb1;
+  border-radius: 4px;
+  color: black;
+}
+
+.contNotification {
+  width: 350px;
+  background: #161616;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 35px 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.contNotification p:nth-of-type(1) {
+  font-weight: 800;
+  font-size: 25px;
+  line-height: 34px;
+  color: white;
+  margin: 0 15px 15px 15px;
+}
+
+.contNotification p:nth-of-type(2) {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  color: white;
+  margin: 15px;
+}
+
+.btn_perfil {
+  background: linear-gradient(92.86deg, #8000ff 3.72%, #9f3fc0 96.71%);
+  border-radius: 4px;
+  width: 300px;
+  height: 55px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.001em;
+  color: #ffffff;
+  border: none;
+}
+
+input,
+textarea {
+  color: white;
 }

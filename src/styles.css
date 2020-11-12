@@ -7,7 +7,12 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #242526;
 }
 * {
   font-family: "Inter", sans-serif;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgb(255 255 255) !important;
 }

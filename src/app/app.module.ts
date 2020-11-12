@@ -8,13 +8,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,12 +24,12 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    SweetAlert2Module.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [MatFormFieldModule, MatInputModule],
 })
 export class AppModule {}

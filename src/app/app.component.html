@@ -1,85 +1,142 @@
-<div class="contenedor">
-  <mat-form-field appearance="outline">
-    <mat-label>Nombre</mat-label>
-    <input [(ngModel)]="creador.nombre" matInput matNativeControl />
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="outline">
-    <mat-label>Nombre de usuario</mat-label>
-    <input [(ngModel)]="creador.username" matInput matNativeControl />
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="outline">
-    <mat-label>Descripcion</mat-label>
-    <textarea
-      [(ngModel)]="creador.description"
-      matInput
-      matNativeControl
-    ></textarea>
-  </mat-form-field>
-  <div class="input-file-cont">
-    <input
-      type="file"
-      style="display: none"
-      #filePortada
-      accept="image/*"
-      (change)="onChangeFileInput(1)"
-    />
-    <button
-      mat-raised-button
-      color="primary"
-      class="file-select-button"
-      (click)="onClickFileInputButton(1)"
-    >
-      <mat-icon>attach_file</mat-icon>
-      Foto de portada
-    </button>
-    <div class="cont-img portada">
-      <img #imgPortada />
-    </div>
-  </div>
-  <div class="input-file-cont">
-    <input
-      type="file"
-      style="display: none"
-      #filePerfil
-      accept="image/*"
-      (change)="onChangeFileInput(2)"
-    />
-    <button
-      mat-raised-button
-      color="primary"
-      class="file-select-button"
-      (click)="onClickFileInputButton(2)"
-    >
-      <mat-icon>attach_file</mat-icon>
-      Foto de perfil
-    </button>
-    <div class="cont-img">
-      <img #imgPerfil />
-    </div>
-  </div>
-  <mat-form-field appearance="outline">
-    <mat-label>twitch.gaming/</mat-label>
-    <input [(ngModel)]="creador.account_twitch" matInput matNativeControl />
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="outline">
-    <mat-label>instagram.com/</mat-label>
-    <input [(ngModel)]="creador.account_instagram" matInput matNativeControl />
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="outline">
-    <mat-label>twitter.com/</mat-label>
-    <input [(ngModel)]="creador.account_twitter" matInput matNativeControl />
-  </mat-form-field>
-  <br />
-  <mat-form-field appearance="outline">
-    <mat-label>titktok/</mat-label>
-    <input [(ngModel)]="creador.account_tiktok" matInput matNativeControl />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="enviar()">Guardar</button>
-</div>
+<div class="contenedor" *ngIf="!registrado">
+  <div class="formulario">
+    <h3 class="title">Creador</h3>
+    <form [formGroup]="ProfileForm">
+      <div class="input-file-cont">
+        <input
+          type="file"
+          hidden
+          #filePerfil
+          accept="image/*"
+          (change)="onChangeFileInput(2)"
+          formControlName="img_perfl"
+        />
 
-<swal #confirmSwal title="Creador registrado " text="muy bien" icon="success">
-</swal>
+        <div class="cont-img">
+          <img #imgPerfil />
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          class="file-select-button"
+          (click)="onClickFileInputButton(2)"
+        >
+          Sube una imagen de perfil
+        </button>
+      </div>
+      <div class="input-file-cont">
+        <input
+          type="file"
+          hidden
+          #filePortada
+          accept="image/*"
+          (change)="onChangeFileInput(1)"
+          formControlName="img_portada"
+        />
+        <div class="cont-img portada">
+          <img #imgPortada />
+        </div>
+        <button
+          mat-raised-button
+          color="primary"
+          class="file-select-button"
+          (click)="onClickFileInputButton(1)"
+        >
+          Sube una imagen de portada
+        </button>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input [(ngModel)]="creador.nombre" matInput formControlName="nombre" />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input
+          [(ngModel)]="creador.username"
+          matInput
+          formControlName="username"
+        />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Descripcion</mat-label>
+        <textarea
+          [(ngModel)]="creador.description"
+          matInput
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>instagram.com/</mat-label>
+        <input
+          [(ngModel)]="creador.account_instagram"
+          matInput
+          formControlName="account_instagram"
+        />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>twitch.gaming/</mat-label>
+        <input
+          [(ngModel)]="creador.account_twitch"
+          matInput
+          formControlName="account_twitch"
+        />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>twitter.com/</mat-label>
+        <input
+          [(ngModel)]="creador.account_twitter"
+          matInput
+          formControlName="account_twitter"
+        />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Facebook/</mat-label>
+        <input
+          [(ngModel)]="creador.account_facebook"
+          matInput
+          formControlName="account_facebook"
+        />
+      </mat-form-field>
+
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>titktok/</mat-label>
+        <input
+          [(ngModel)]="creador.account_tiktok"
+          matInput
+          formControlName="account_tiktok"
+        />
+      </mat-form-field>
+    </form>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="save_creator"
+      (click)="enviar()"
+    >
+      Registrarme como creador
+    </button>
+  </div>
+</div>
+<div class="contNotification" *ngIf="registrado">
+  <p>¡Hola, {{ creador.nombre }}!</p>
+  <div class="cont-img">
+    <img src="{{ creador.img_perfl }}" />
+  </div>
+  <p>Te has registrado con exito</p>
+  <button mat-raised-button class="btn_perfil" (click)="go_perfil()">
+    Ir a mi perfil
+  </button>
+</div>
